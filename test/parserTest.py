@@ -1,5 +1,5 @@
 ###############################
-#            PRINT            #
+#            # print            #
 ###############################
 import lexer
 import parser
@@ -8,19 +8,19 @@ from constants import pgnInputs
 
 def test_print(pgn):
     for game in pgn:
-        print(game[0])
+        # print(game[0])
 
         lex = lexer.Lexer()
         lex.createLexer()
         lex.test(game[1])
         if len(lex.error) > 0:
-            print("Syntax error in output : ")
+            # print("Syntax error in output : ")
             for error in lex.error:
                 print("error: " + error)
         else:
             pars = parser.Parser()
             result = pars.parser.parse(game[1])
-            print(result)
+            # print(result)
             if pars.hasError:
                 print("Invalid PGN File :( ")
             else:
@@ -87,7 +87,7 @@ def test_inv_moves():
         ],
     ]
 
-    print("MOVES")
+    # print("MOVES")
     test_print(samples)
 
 
@@ -170,7 +170,7 @@ def test_inv_win():
         ],
     ]
 
-    print("WIN")
+    # print("WIN")
     test_print(samples)
 
 
@@ -253,7 +253,7 @@ def test_inv_castle():
         ],
     ]
 
-    print("MOVES")
+    # print("MOVES")
     test_print(samples)
 
 
@@ -611,7 +611,7 @@ def test_valid():
         ],
     ]
 
-    print("VALID")
+    # print("VALID")
     test_print(samples)
 
 
@@ -693,7 +693,7 @@ def test_inv_commentaries():
         ],
     ]
 
-    print("COMMENTARIES")
+    # print("COMMENTARIES")
     test_print(samples)
 
 
@@ -806,7 +806,7 @@ def test_inv_descriptors():
         ],
     ]
 
-    print("DESCRIPTORS")
+    # print("DESCRIPTORS")
     test_print(samples)
 
 
@@ -910,7 +910,7 @@ def test_inv_turns():
         ],
     ]
 
-    print("TURNS")
+    # print("TURNS")
     test_print(samples)
 
 

@@ -13,6 +13,7 @@ REGEX_COMMENTARY = "\{.*?\}|\(.*?\)"
 REGEX_WIN_RESULT = "(1-0|0-1|1\/2-1\/2)"
 REGEX_MOVE = "[NBQRK]?[0-8a-h]?x?[a-h][1-8](\+{0,2})[?!]?"
 
+
 ###############################
 #       UNITARY TESTS         #
 ###############################
@@ -20,20 +21,21 @@ REGEX_MOVE = "[NBQRK]?[0-8a-h]?x?[a-h][1-8](\+{0,2})[?!]?"
 def test_print(name, samples, regex):
     isSuccess = True
 
-    print("\n[START] "+name+"\n----------\n")
+    # print("\n[START] "+name+"\n----------\n")
     for sample in samples:
         if (((re.match(regex, sample[1])) != None) == sample[2]):
             print("\033[92m [PASS] \033[0m" + sample[0], )
         else:
-            print("\033[91m [FAIL] \033[0mExpected : " + str(sample[2]) + "     | " + sample[0])
+            # print("\033[91m [FAIL] \033[0mExpected : " + str(sample[2]) + "     | " + sample[0])
             isSuccess = False
 
     if isSuccess:
-        print("\n\033[92m [PASS] "+name+" : All tests passed! \033[0m")
+        print("\n\033[92m [PASS] " + name + " : All tests passed! \033[0m")
     else:
-        print("\n\n\033[91m [FAIL] "+name+" : Some tests failed ! \033[0m")
+        print("\n\n\033[91m [FAIL] " + name + " : Some tests failed ! \033[0m")
 
     return isSuccess
+
 
 def test_descriptors():
     samples = [
@@ -52,6 +54,7 @@ def test_descriptors():
     ]
 
     test_print("DESCRIPTORS", samples, REGEX_DESCRIPTORS)
+
 
 def test_commentary():
     samples = [
@@ -81,10 +84,11 @@ def test_commentary():
 
     test_print("COMMENTARY", samples, REGEX_COMMENTARY)
 
+
 def test_castle():
     samplesShort = [
         ["Single Valid ROC (O-O)", "O-O", True],
-        ["Single Valid ROC (O-O-O)", "O-O-O", True], # Should be false in real case
+        ["Single Valid ROC (O-O-O)", "O-O-O", True],  # Should be false in real case
         ["Single Invalid ROC (OO)", "OO", False],
         ["Single Invalid ROC (double -)", "O--O", False],
         ["Single Invalid ROC (AO)", "A-O", False],
@@ -101,6 +105,7 @@ def test_castle():
     test_print("CASTLE SHORT", samplesShort, REGEX_CASTLE_SHORT)
     test_print("CASTLE LONG", samplesLong, REGEX_CASTLE_LONG)
 
+
 def test_turn():
     samples = [
         ["Single Valid Turn (1.)", "1.", True],
@@ -113,7 +118,7 @@ def test_turn():
         ["Single Invalid Turn (1)", "1", False],
         ["Single Invalid Turn (1..)", "1..", False],
         ["Single Invalid Turn (A...)", "A...", False],
-        ["Single Invalid Turn (1....)", "1....", True], # Should be false in real case
+        ["Single Invalid Turn (1....)", "1....", True],  # Should be false in real case
     ]
     samples = [
         ["Simple case", "123.", True],
@@ -121,16 +126,16 @@ def test_turn():
         ["Dot", ".", False],
         ["No period", "456", False],
         ["Non-digit characters before period", "789abc.", False],
-        ["Non-digit characters after period", "111.aaa", True], # Should be false in real case
+        ["Non-digit characters after period", "111.aaa", True],  # Should be false in real case
         ["Multiple digits before period", "99999.", True],
-        ["Multiple periods", "222.333.", True], # Should be false in real case
+        ["Multiple periods", "222.333.", True],  # Should be false in real case
         ["Period at beginning", ".444", False],
         ["Period at end", "555.", True],
     ]
 
-
     test_print("TURN", samples, REGEX_TURN)
     test_print("TURN SECOND", samplesRecovery, REGEX_TURN_RECOVERY)
+
 
 def test_win_result():
     samples = [
@@ -146,6 +151,7 @@ def test_win_result():
 
     test_print("END GAME", samples, REGEX_WIN_RESULT)
 
+
 def test_action():
     samples = [
         ["Valid Action", "e6", True],
@@ -159,11 +165,11 @@ def test_action():
         ["Valid Action (!)", "Rxe4+", True],
         ["Valid Action (?)", "Rxe4+", True],
         ["Valid Action (++?)", "Rxe4++?", True],
-        ["Invalid Action (!?)", "Rxe4!?", True], # Should be false in real case
-        ["Invalid Action (!!)", "Rxe4!!", True], # Should be false in real case
-        ["Invalid Action (??)", "Rxe4??", True], # Should be false in real case
-        ["Invalid Action (.)", "Rxe4.", True], # Should be false in real case
-        ["Invalid Action (+++)", "Rxe4+++", True], # Should be false in real case
+        ["Invalid Action (!?)", "Rxe4!?", True],  # Should be false in real case
+        ["Invalid Action (!!)", "Rxe4!!", True],  # Should be false in real case
+        ["Invalid Action (??)", "Rxe4??", True],  # Should be false in real case
+        ["Invalid Action (.)", "Rxe4.", True],  # Should be false in real case
+        ["Invalid Action (+++)", "Rxe4+++", True],  # Should be false in real case
         ["Invalid Action (Bad piece", "Sxe4", False],
         ["Invalid Action (Out of gameboard)", "i4", False],
         ["Invalid Action (Out of gameboard)", "h9", False],
@@ -172,6 +178,7 @@ def test_action():
     ]
 
     test_print("ACTION", samples, REGEX_MOVE)
+
 
 ###############################
 #             MAIN            #
