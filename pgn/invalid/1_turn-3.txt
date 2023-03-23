@@ -1,0 +1,5 @@
+[BlackFideId "2016192"]
+[EventDate "2023.03.17"]
+[EventType "k.o."]
+1. d4 Nf6 2. Nf3 d5 4. Nc3 h6 5. Bf4 Bd6 6. Bxd6 Qxd6 7. e3 O-O 8. Rc1
+a6 9. a3 b6 10. cxd5 exd5 11. Be2 Nbd7 12. O-O Qe1+ 1/2-1/2
