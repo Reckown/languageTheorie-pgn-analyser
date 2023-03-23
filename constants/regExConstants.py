@@ -13,7 +13,7 @@
 REGEX_DESCRIPTORS = "\[\w+\s+\".*?\"\]"
 REGEX_TURN = "\d+\.\s"
 REGEX_TURN_SECOND = "\d+\.\.\."
-REGEX_ROC_LONG = "O-O-O"
+REGEX_ROC_LONG = "(?<=\s)O-O-O(?=\s)"
 REGEX_ROC_SHORT = "(?<=\s)O-O(?=\s)"
 REGEX_COMMENTARY = "\(.*?\)|\{.*?\}|\[.*?\]"
 REGEX_END_GAME = "(1-0|0-1|1\/2-1\/2)"
