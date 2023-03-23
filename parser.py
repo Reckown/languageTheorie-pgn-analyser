@@ -1,6 +1,6 @@
-import lexer
 import ply.yacc as yacc
 
+import lexer
 
 # -----------------------------------------------------------------------------
 # tokens = ['HEADER', 'TURN', 'TURN_RECOVERY', 'SHORT_CASTLE',
@@ -45,6 +45,7 @@ import ply.yacc as yacc
 #
 # empty         : pass
 # -----------------------------------------------------------------------------
+
 
 class Parser(object):
     # Tokens defined in lexer

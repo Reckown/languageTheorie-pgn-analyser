@@ -1,15 +1,12 @@
 ###############################
-#            # print            #
+#            print            #
 ###############################
 import lexer
 import parser
-from constants import pgnInputs
 
 
 def test_print(pgn):
     for game in pgn:
-        # print(game[0])
-
         lex = lexer.Lexer()
         lex.createLexer()
         lex.test(game[1])
@@ -20,13 +17,11 @@ def test_print(pgn):
         else:
             pars = parser.Parser()
             result = pars.parser.parse(game[1])
-            # print(result)
+            print(result)
             if pars.hasError:
                 print("Invalid PGN File :( ")
             else:
                 print("Valid PGN")
-
-    # @TODO
 
 
 ###############################
@@ -919,10 +914,10 @@ def test_inv_turns():
 ###############################
 
 if __name__ == '__main__':
-    # test_valid()
+    test_valid()
     # test_inv_descriptors()
     # test_inv_turns()
     # test_inv_commentaries()
     # test_inv_castle()
     # test_inv_moves()
-    test_inv_win()
+    # test_inv_win()

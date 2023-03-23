@@ -1,8 +1,8 @@
-import constants.pgnInputs
-import lexer
-from constants import pgnInputs
-import parser
 import sys
+
+import lexer
+import parser
+from constants import pgnInputs
 
 
 def createLexer():
@@ -20,7 +20,7 @@ def createParser(pgn):
         for error in lex.error:
             print("error: " + error)
     else:
-        print("Most nested comment without capture : "+ str(lex.maxLevel))
+        print("Most nested comment without capture : " + str(lex.maxLevel))
         pars = parser.Parser()
         result = pars.parser.parse(pgn)
         # print(result)

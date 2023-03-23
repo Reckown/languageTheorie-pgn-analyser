@@ -1,7 +1,7 @@
 import lexer
 
 
-# Test le lexer sous différentes conditions,
+# Tests the lexer under different conditions
 def test_lexer():
     # 1 - Valid PGN
     ret = test_valid_pgn_1()

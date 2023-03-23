@@ -1,8 +1,9 @@
-import ply.lex as lex
 import re
 
+import ply.lex as lex
+
 from constants.regExConstants import REGEX_END_GAME, REGEX_TURN, REGEX_TURN_SECOND, REGEX_ROC_LONG, REGEX_ROC_SHORT, \
-    REGEX_DESCRIPTORS, REGEX_COMMENTARY, REGEX_ACTION
+    REGEX_DESCRIPTORS, REGEX_ACTION
 
 
 class Lexer:
@@ -152,4 +153,4 @@ class Lexer:
             if not tok:
                 break
             # print(tok)
-        ## print(self.tokenList)
+        # print(self.tokenList)
